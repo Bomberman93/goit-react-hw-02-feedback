@@ -1,18 +1,15 @@
 import React from "react";
+import Header from "./Header";
 
-const FeedbackOptions = ({ onGoog, onNeutral, onBad }) => (
-  <div className="FirstTask__controls">
-    <h1 className="FirstTitle">Please liave feedback</h1>
-    <button type="button" onClick={onGoog}>
-      Good
-    </button>
-    <button type="button" onClick={onNeutral}>
-      Neutral
-    </button>
-    <button type="button" onClick={onBad}>
-      Bad
-    </button>
-  </div>
-);
-
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+  const array = Object.keys(options);
+  return (
+    <div className="FirstTask__controls">
+      <Header title={"Please liave feedback"}/>
+      {array.map((value, key) => (
+        <button key={key} type="button" onClick={() => {onLeaveFeedback(value)}}>{value}</button>
+      ))}
+    </div>
+  );
+};
 export default FeedbackOptions;

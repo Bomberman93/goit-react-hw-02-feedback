@@ -1,8 +1,15 @@
 import React from "react";
+import Header from "./Header";
 
-const Statistics = ({valueGood, valueNeutral, valueBad, valueTotal, valueProcentPositiv}) => (
+const Statistics = ({
+  valueGood,
+  valueNeutral,
+  valueBad,
+  valueTotal,
+  valueProcentPositiv,
+}) => (
   <div>
-    <h1 className="FirstTitle">Statistics</h1>
+    <Header title={"Statistic"}/>
     <p className="FirstText">Good:{valueGood}</p>
     <p className="FirstText">Neutral:{valueNeutral}</p>
     <p className="FirstText">Bad:{valueBad}</p>

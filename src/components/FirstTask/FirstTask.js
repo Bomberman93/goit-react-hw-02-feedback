@@ -33,10 +33,9 @@ class FirstTask extends React.Component {
   render() {
     return (
       <div className="FirstTask">
-        <FeedbackOptions
-          onGoog={() => this.handleRating("good")}
-          onNeutral={() => this.handleRating("neutral")}
-          onBad={() => this.handleRating("bad")}
+        <FeedbackOptions 
+          options={this.state}
+          onLeaveFeedback = {this.handleRating}
         />
         <Statistics
           valueGood={this.state.good}
