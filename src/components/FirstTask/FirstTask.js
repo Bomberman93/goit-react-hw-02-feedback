@@ -1,6 +1,6 @@
 import React from "react";
-import FeedbackOptions from "./FeedbackOptions";
-import Statistics from "./Statistics";
+import FeedbackOptions from "../FeedbackOptions/FeedbackOptions";
+import Statistics from "../Statistics/Statistics";
 import "./FirstTask.css";
 
 class FirstTask extends React.Component {

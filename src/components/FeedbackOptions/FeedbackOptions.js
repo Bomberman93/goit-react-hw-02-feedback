@@ -1,5 +1,6 @@
 import React from "react";
-import Header from "./Header";
+import Header from "../Titles/Header";
+import PropTypes from 'prop-types';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   const array = Object.keys(options);
@@ -13,3 +14,8 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   );
 };
 export default FeedbackOptions;
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.object.isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
+}
