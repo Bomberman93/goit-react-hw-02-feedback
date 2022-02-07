@@ -10,44 +10,40 @@ class FirstTask extends React.Component {
     bad: 0,
   };
 
-  handlGooD = () => {
+  handleRating = (key) => {
     this.setState((prevState) => {
       return {
-        good: prevState.good + 1,
+        [key]: prevState[key] + 1,
       };
     });
   };
 
-  handlNeutral = () => {
-    this.setState((prevState) => {
-         console.log(prevState)  /*приходит обьект=)*/
-      return {
-        neutral: prevState.neutral + 1,
-      };
-      
-    });
+  countTotalFeedback = () => {
+    return this.state.good + this.state.neutral + this.state.bad;
   };
 
-  handlBad = () => {
-    this.setState((prevState) => {
-      return {
-        bad: prevState.bad + 1,
-      };
-    });
+  countPositiveFeedbackPercentage = () => {
+    const procentPositiv = 
+    this.countTotalFeedback()
+      ? ((this.state.good + this.state.neutral) * 100) /this.countTotalFeedback()
+      : 0;
+    return Math.round(procentPositiv);
   };
 
   render() {
     return (
       <div className="FirstTask">
         <FeedbackOptions
-          onGoog={this.handlGooD}
-          onNeutral={this.handlNeutral}
-          onBad={this.handlBad}
+          onGoog={() => this.handleRating("good")}
+          onNeutral={() => this.handleRating("neutral")}
+          onBad={() => this.handleRating("bad")}
         />
         <Statistics
           valueGood={this.state.good}
           valueNeutral={this.state.neutral}
           valueBad={this.state.bad}
+          valueTotal={this.countTotalFeedback()}
+          valueProcentPositiv={this.countPositiveFeedbackPercentage()}
         />
       </div>
     );
